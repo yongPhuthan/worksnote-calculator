@@ -1,0 +1,129 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!-- Show ต้นทุนอลูมิเนียม -->
+<div style="margin-top: 10%;">
+
+    <p>
+        <a class="btn btn-primary btn-lg btn-block" data-toggle="collapse" href="#collapseThick" role="button "
+            aria-expanded="false" aria-controls="collapseThick">
+            ต้นทุนอลูมิเนียม
+        </a>
+    </p>
+    <div class="collapse" id="collapseThick">
+        <div class="card card-body">
+            <table class="table table-striped table-bordered table-sm align-middle">
+                <thead class="thead-dark align-middle text-center">
+                    <tr>
+                        <th>ยี่ห้อ</th>
+                        <th>สี</th>
+                        <th>ความหนาอลูมิเนียม</th>
+                        <th>ราคาต้นทุน (บาท/ตรม)</th>
+                    </tr>
+                </thead>
+                {% for r in alu %}
+                <tr class="text-center">
+                    <td>{{r.brand}}</td>
+                    <td>{{r.color}}</td>
+                    <td>{{r.thick}}</td>
+                    <td>{{r.price}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <a class="btn btn-secondary" href="{% url 'fol_cost_edit' %}" role="button">แก้ไขข้อมูล</a>
+        </div>
+
+
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseThick"
+            aria-expanded="false" aria-controls="collapseThick">
+            ซ่อน
+        </button><br>
+    </div>
+</div>
+
+
+<!-- Show ต้นทุนกระจก -->
+<p>
+    <a class="btn btn-primary btn-lg btn-block" data-toggle="collapse" href="#collapseGlass" role="button "
+        aria-expanded="false" aria-controls="collapseGlass">
+        ต้นทุนกระจก
+    </a>
+</p>
+<div class="collapse" id="collapseGlass">
+    <div class="card card-body">
+        <table class="table table-striped table-bordered table-sm align-middle">
+            <thead class="thead-dark align-middle text-center">
+                <tr>
+
+                    <th>ประเภทกระจก</th>
+                    <th>ความหนา (mm)</th>
+                    <th>ราคาต้นทุน (บาท/ตรฟ)</th>
+                </tr>
+            </thead>
+            {% for r in glass %}
+            <tr class="text-center">
+                <td>{{r.glassType}}</td>
+                <td>{{r.glassThick}}</td>
+                <td>{{r.price}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a class="btn btn-secondary" href="{% url 'glass_cost_edit' %}" role="button">แก้ไขข้อมูล</a>
+    </div>
+
+
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseGlass"
+        aria-expanded="false" aria-controls="collapseGlass">
+        ซ่อน
+    </button>
+</div>
+
+
+<!-- Show ต้นทุนอื่นๆ -->
+
+<p>
+    <a class="btn btn-primary btn-lg btn-block" data-toggle="collapse" href="#collapseOther" role="button "
+        aria-expanded="false" aria-controls="collapseOther">
+        ต้นทุนค่าน้ำมัน ขนส่ง อุปกรณ์เสริม
+    </a>
+</p>
+<div class="collapse" id="collapseOther">
+    <div class="card card-body">
+        <table class="table table-striped table-bordered table-sm align-middle">
+            <thead class="thead-dark align-middle text-center">
+                <tr>
+                    <th>ค่าขนส่ง CBM</th>
+                    <th>ค่าขนส่ง KG</th>
+                    <th>ค่าแรงช่าง</th>
+                    <th>ค่าส่งจีน ค่าน้ำมันรับของ-วัดหน้างาน</th>
+                    <th>อุปกรณ์เสริม</th>
+                    <th>ค่าใช้จ่ายอื่นๆ</th>
+                </tr>
+
+            </thead>
+            {% for r in other %}
+            <tr class="text-center">
+                <td>{{r.cbm_cost}}</td>
+                <td>{{r.kg_cost}}</td>
+                <td>{{r.labor_cost}}</td>
+                <td>{{r.transport_cost}}</td>
+                <td>{{r.tools_cost}}</td>
+                <td>{{r.other_cost}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a class="btn btn-secondary" href="{% url 'other_cost_edit' %}" role="button">แก้ไขข้อมูล</a>
+    </div>
+
+
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseOther"
+        aria-expanded="false" aria-controls="collapseGlass">
+        ซ่อน
+    </button>
+</div>
+
+
+<br>
+<br>
+<a href="{% url 'fol_input_page' %}" class="btn btn-success">ย้อนกลับ</a>
+
+{% endblock %}

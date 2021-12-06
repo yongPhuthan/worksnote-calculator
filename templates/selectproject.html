@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+{% block style %}
+<link  href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+{% endblock %}
+{% block script %}
+<script  href="{% static 'js/bootstrap.min.js' %}"></script>
+{% endblock %}
+
+<div class="container">
+  <h3 style="text-align: center; margin-top: 30px">
+    เลือกประเภทงานเพื่อประเมินราคา
+  </h3>
+  <div class="row" style="margin-top: 30px">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <div class="card" style="text-align: center;margin-top: 25px; border-radius:20px;">
+        <div class="card-body ">
+          <img src="{% static 'images/sliddingdoor.jpeg' %}" class="card-img-top" style="height: 300px; width: 200px" />
+        </div>
+        <div class="card-header bg-steelblue " id="folding"
+          style="background-color: #3f50b5; border-radius: 0px 0px 20px 20px;">
+          <a href="{% url 'folding-formular' %}" class="card-text stretched-link" style="color: aliceblue;">บานเฟี้ยม</a>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 25px; text-align: center; border-radius:20px;">
+        <div class="card-body">
+          <img src="{% static 'images/sliddingdoor.jpeg' %}" class="card-img-top" style="height: 300px; width: 200px" />
+        </div>
+        <div class="card-header" id="folding" style="background-color: #3f50b5; border-radius: 0px 0px 20px 20px;">
+          <h5 style="color: aliceblue;">บานสวิง</h5>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <div class="card" style="text-align: center;margin-top: 25px; border-radius:20px;">
+        <div class="card-body">
+          <img src="{% static 'images/sliddingdoor.jpeg' %}" class="card-img-top" style="height: 300px; width: 200px" />
+        </div>
+        <div class="card-header" id="folding" style="background-color: #3f50b5; border-radius: 0px 0px 20px 20px;">
+          <h5 style="color: aliceblue;">บานกระทุ้ง</h5>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 25px; text-align: center; border-radius:20px;">
+        <div class="card-body">
+          <img src="{% static 'images/sliddingdoor.jpeg' %}" class="card-img-top" style="height: 300px; width: 200px" />
+        </div>
+        <div class="card-header" id="folding" style="background-color: #3f50b5; border-radius: 0px 0px 20px 20px;">
+          <h5 style="color: aliceblue;">บานเฟี้ยม</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

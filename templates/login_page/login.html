@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% load socialaccount %}
+{% block content %}
+<html>
+  <head>
+    <title>Login page</title>
+  </head>
+  <body>
+    {% if user.is_authenticated %}
+        <h1>Welcome, {{ user.username }} !</h1>    
+        <a href="{% url 'logout' %}">LOGOUT</a> 
+    {% else %}
+        <h1>Login Page</h1>
+        <button onclick="document.location='{% provider_login_url 'google' %}'">
+            Login with Google
+        </button>
+    {% endif %}
+  </body>
+</html>
+{% endblock %}

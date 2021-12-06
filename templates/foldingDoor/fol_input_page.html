@@ -1,0 +1,138 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container-fluid" style="background-color:ghostwhite">
+    <h3 style="text-align: center; padding-top:30px">ประเมินราคาประตูบานเฟี้ยม</h3>
+    <br>
+    <!-- {% load crispy_forms_tags %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button>submit</button>
+    <h2>{{x.width}}</h2>
+
+</form> -->
+    <a href="{% url 'fol_all_cost' %}">ตั้งค่าต้นทุน</a>
+    <a href="{% url 'fol_cost_show' %}">ดูต้นทุน</a>
+
+
+    <div style="max-width: 100%;">
+        {% load crispy_forms_tags %}
+        <form class="form-inline" method="post">
+            {% csrf_token %}
+            <!-- ขนาดพื้นที่ -->
+            <div class="card mb-3 col-lg col-sm" style="max-width: 100%;box-shadow:rgb(4 17 29 / 25%) 0px 0px 8px 0px;">
+                <div class="row">
+                    <div class="col-lg ">
+                        <div class="form-group d-flex justify-content-center mb-2 mt-5">
+
+                            <div class="mr-2 mb-4"> {{form.width}}</div>
+                            <div class="mr-2 mb-4 ml-3"> {{form.lenght}}</div>
+
+
+                            <!-- <input type="number" class="form-control form-control-lg ml-2 mb-4" id="height"
+                                placeholder="ความสูง cm"> -->
+                            <!-- <div class="col-lg col-sm"> -->
+
+                            <div class="form-group row ">
+                                <!-- <label for="colFormLabel" class="col-lg col-sm col-form-label col-form-label-lg mb-4"
+                                    style="color: darkslategrey;">แบ่งจำนวนบานประตูพับ:</label> -->
+                                <!-- <input type=" number" class="form-control form-control-lg col-lg col-sm ml-4"
+                                id="colFormLabel" placeholder="col-form-label"> -->
+                                <div class="col-lg-4 col-sm-4 mb-4"> {{form.door}}</div>
+                                <!-- <select id="inputNumber" class="form-control form-control-lg col-lg-4 col-sm-4 mb-4">
+                                    <option selected>Choose...</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                    <option>13</option>
+                                    <option>14</option>
+                                    <option>15</option>
+                                    <option>16</option>
+                                    <option>17</option>
+                                    <option>18</option>
+                                    <option>19</option>
+                                    <option>20</option>
+                                </select> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <!-- อลูมิเนียม -->
+    <div class="card mb-3 col-lg col-sm mt-5" style="max-width: 100%;box-shadow:rgb(4 17 29 / 25%) 0px 0px 8px 0px;">
+        <h5 style="text-align:center; color:darkslategrey; margin-top:2rem">อลูมิเนียม</h5>
+        <div class="row">
+            <div class="col-lg col-sm">
+                <div class="container-fluid">
+                    <div class="form-group d-flex justify-content-center mb-2 mt-3">
+                        <select id="brand" class="form-control form-control-lg col-lg-4 col-sm-4 ml-3">
+                            <option selected value="brand">เลือกยี่ห้อ</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                        </select>
+                        <div class="col-lg-4 col-sm-4 mb-4 ml-3"> {{form.color}}</div>
+
+                        <div class="col-lg-4 col-sm-4 mb-4 mr-3"> {{form.aluThickness}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- สเป็คกระจก -->
+    <div class="card col-lg col-sm "
+        style="max-width: 100%;box-shadow:rgb(4 17 29 / 25%) 0px 0px 8px 0px; margin-top: 60px;">
+        <h5 style="text-align:center; color:darkslategrey; margin-top:2rem">กระจก</h5>
+        <div class="row">
+            <div class="col-lg col-sm">
+                <div class="container-fluid">
+                    <div class="form-group d-flex justify-content-center mb-2 mt-3">
+
+                        <div class="col-lg-4 col-sm-4 mb-4 mr-3"> {{form.glass}}</div>
+
+                        <div class="col-lg-4 col-sm-4 mb-4 ml-3"> {{form.glassThickness}}</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container-fluid footer fixed-bottom"><button class="btn btn-primary" style="width: 100%; font-size:18px" type="submit" value="submit">คำนวณราคา</button>
+    </div>
+
+    </form>
+
+</div>
+</div>
+
+
+{% endblock %}

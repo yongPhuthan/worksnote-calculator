@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+{% if not form.is_valid %}
+<form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <!-- {{form.brand}}
+    {{form.color}}
+    {{form.thick}}
+    {{form.price}} -->
+    <p class="mt-4 text-center">
+       
+        <a class="btn btn-primary " href="{% url 'fol_all_cost' %}" role="button"> ย้อนกลับ</a>
+        <button class="btn btn-primary">
+            บันทึกข้อมูล
+        </button>
+
+    </p>
+    <br>
+
+</form>
+{% else %}
+<h3>ข้อมูลถูกบันทึกแล้ว</h3><br>
+<a href="{% url 'fol_cost_add' %}">เพิ่มข้อมูลใหม่</a>
+{% endif %}
+
+
+
+
+
+
+
+
+{% endblock %}

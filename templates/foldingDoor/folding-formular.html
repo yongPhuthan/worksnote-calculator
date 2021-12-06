@@ -1,0 +1,147 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load bootstrap_icons %}
+{% block content %}
+<div class="container"">
+  <h4 style="text-align: center; margin-top: 30px">
+    เลือกสูตรการคำนวณ ประตูบานเฟี้ยม
+  </h4>
+
+  <div id="accordion" style="margin-top: 30px;">
+    <div class="card" >
+      <div class="card-header" id="headingOne" style="background-color: #2081e2;">
+        <h5 class="mb-0">
+          <button class="btn btn-link " data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+            aria-controls="collapseOne" style="color: aliceblue;">
+            <h5>ราคาต่อตารางเมตร </h5>
+          </button>
+        </h5>
+      </div>
+
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion" style="margin-top: 50px;">
+        <div class="card-body">
+          <div class="input-group mb-3">
+
+
+            <input type="text" class="form-control" placeholder="กำหนดราคาของคุณ" aria-label="Recipient's username" aria-describedby="basic-addon2" id="formular1">
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2">บาท / ตารางเมตร.</span>
+            </div>
+          </div>
+          <a type="button" href="{% url 'fol_input_page' %}" class="btn btn-success btn-md btn-block" style="margin-top: 30px; margin-bottom:50px">เริ่มต้นคำนวณ</a>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo" style="background-color: #2081e2;">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="false" aria-controls="collapseTwo" style="color: aliceblue;">
+            <h5>ราคาตามจำนวนบานประตู</h5>
+          </button>
+        </h5>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+          officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+          wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+          Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+          excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
+          you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+    <!-- สำรอง -->
+
+    <!-- <div class="row d-flex justify-content-center" style="margin-top: 30px; text-align: center">
+      <div class="col-sm-12 col-md-6 col-lg-6" style="text-align: center;">
+        
+        <div class="card" style="margin-top: 25px; border-radius:20px 20px 0px 0px;">
+          <div class="card-header bg-steelblue " id="folding"
+          style="background-color: #3f50b5; border-radius: 20px 20px 0px 0px;">
+          <a href="{% url 'fol_input_page' %}" class="card-text stretched-link" style="color: aliceblue;">
+            ประตูบานเฟี้ยม</a>
+        </div>
+          <div class="card-body ">
+            <img src="{% static 'images/sliddingdoor.jpeg' %}" class="card-img-top" style="height: 300px; width: 200px" />
+          </div>
+        </div>
+        <div id="accordion" style="margin-top: 30px;">
+          <div class="card" >
+            <div class="card-header" id="headingOne" style="background-color: #2081e2;">
+              <h5 class="mb-0">
+                <button class="btn btn-link " data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                  aria-controls="collapseOne" style="color: aliceblue;">
+                  คำนวณราคาต่อตารางเมตร   
+                    {% bs_icon 'arrow-right-circle-fill' size='1.5em' color='white' %}
+                  
+                </button>
+              </h5>
+            </div>
+    
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+                officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+                wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+                excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
+                you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="false" aria-controls="collapseTwo">
+                  Collapsible Group Item #2
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+                officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+                wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+                excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
+                you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                  aria-expanded="false" aria-controls="collapseThree">
+                  Collapsible Group Item #3
+                </button>
+              </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+              <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+                officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+                wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+                excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
+                you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+     -->
+
+    
+    {% endblock %}

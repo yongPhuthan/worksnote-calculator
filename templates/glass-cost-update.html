@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {% if not form.is_valid %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+     
+        <p class="mt-4 text-center">
+            <button class="btn btn-primary">
+                บันทึกการเปลี่ยนแปลง
+            </button>
+        </p>
+    </form>
+    {% else %}
+        <h3>ข้อมูลถูกบันทึกแล้ว</h3><br>
+        <a href="{% url 'glass_cost_edit' %}">ย้อนกลับ</a>
+    {% endif %}
+{% endblock %}

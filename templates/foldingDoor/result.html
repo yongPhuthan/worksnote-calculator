@@ -1,0 +1,173 @@
+{% extends 'layout.html' %}
+{% load humanize %}
+{% load bootstrap_icons %}
+{% block content %}
+<br />
+
+<div id="accordion" style="margin-top: 15%; text-align: center">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#show" aria-expanded="true"
+          aria-controls="show" style="text-align: center">
+          <p style="text-align: center">
+            กว้าง{{width}}เมตร x สูง{{lenght}}เมตร {{youChoose}}
+            {{youChoose_door}} ราคา {{alu_price_cbm12|floatformat:0}}
+            {{data12|floatformat:0}}{{alu_price_cbm16|floatformat:0}}
+            {{alu_price_cbm20|floatformat:0}} {{alu_price_door12|floatformat:0}}
+            {{alu_price_door16|floatformat:0}}
+            {{alu_price_door20|floatformat:0}}บาท
+          </p>
+        </button>
+      </h2>
+    </div>
+
+    <div id="show" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body" id="copytext">
+        ประตูบานเฟี้ยมอลูมิเนียมเฉพาะทางอบ{{aluColor}}(อลูมิเนียมหนา{{aluThick}})
+        <br />
+        ขนาดพื้นที่หน้างาน กว้าง{{width}}เมตร x สูง{{lenght}}เมตร <br />
+
+        แบ่งจำนวน{{door}}บานประตู {{glassType}}หนา{{glassThick}}mm <br />
+        ราคา {{alu_price_cbm12|floatformat:1}}
+        {{data12|floatformat:1}}{{alu_price_cbm16|floatformat:1}}
+        {{alu_price_cbm20|floatformat:1}} {{alu_price_door12|floatformat:1}}
+        {{alu_price_door16|floatformat:1}}
+        {{alu_price_door20|floatformat:0}}บาทครับ
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+            aria-controls="collapseTwo">
+            ต้นทุนทั้งหมด = {{allCost|floatformat:0}}{{
+            allCost_door|floatformat:0}} บาท
+          </button>
+        </h5>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body"></div>
+        ค่าขนส่งจากไทยมาจีน = {{all_cbm_cost|floatformat:0}} บาท <br />
+        ต้นทุนกระจกทั้งหมด = {{glass_cost_select |floatformat:0 }} บาท<br />
+        ต้นทุนอลูมิเนียม = {{aluCost}}{{aluCost_door}} บาท<br />
+        ค่าแรง = {{all_labor_cost}} <br />
+        ค่าใช้จ่ายอื่นๆ = {{all_other_cost|floatformat:0}}
+        <br />
+        รวมค่าใช้จ่ายทั้งหมด = {{allCost|floatformat:0}}{{
+        allCost_door|floatformat:0}} บาท
+        <br /><br />
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+            aria-expanded="false" aria-controls="collapseThree">
+            กำไร =
+            {{margin_CBM12|floatformat:0}}{{margin_CBM16|floatformat:0}}{{margin_CBM20|floatformat:0}}{{margin_door12|floatformat:0}}{{margin_door16|floatformat:0}}{{margin_door20|floatformat:0}}
+            คิดเป็น {{m_percent_16|floatformat:0}}%
+          </button>
+        </h5>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+          terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+          skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+          Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
+          single-origin coffee nulla assumenda shoreditch et. Nihil anim
+          keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+          sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+          occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
+          you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="btn btn-primary btn-lg btn-block" href="{% url 'fol_input_page' %}" role="button">กลับหน้าแรก</a><br />
+</div>
+
+
+{% bs_icon 'alarm' %}
+<div class="container-fluid mt-5">
+  <div class="container" style="text-align: center">
+    <h3>ประตูบานเฟี้ยม อลูมิเนียมสีดำ กระจกใส</h3>
+    <h3>กว้าง4เมตร x สูง 2 เมตร แบ่ง4บานประตู</h3>
+  </div>
+  <div class="container">
+    <div class="card text-white bg-success mt-5 col-lg-4 col-sm">
+      <div class="row">
+        <div class="card-body col-sm-9">
+          <h5 class="card-title">ราคาเสนอ</h5>
+        </div>
+        <h5 style="padding-top: 20px">{{alu_price_cbm12|floatformat:0}}
+          {{data12|floatformat:0}}{{alu_price_cbm16|floatformat:0}}
+          {{alu_price_cbm20|floatformat:0}} {{alu_price_door12|floatformat:0}}
+          {{alu_price_door16|floatformat:0}}
+          {{alu_price_door20|floatformat:0}} บาท</h5>
+      </div>
+    </div>
+    <div class="card text-white bg-success mt-2 col-lg-4 col-sm">
+      <div class="row">
+        <div class="card-body col-sm-9">
+          <h5 class="card-title">กำไร
+            {{m_percent_12|floatformat:0}}{{m_percent_16|floatformat:0}}{{m_percent_20|floatformat:0}}%</h5>
+        </div>
+        <h5 style="padding-top: 20px">
+          {{margin_CBM12|floatformat:0}}{{margin_CBM16|floatformat:0}}{{margin_CBM20|floatformat:0}}{{margin_door12|floatformat:0}}{{margin_door16|floatformat:0}}{{margin_door20|floatformat:0}}
+          บาท </h5>
+      </div>
+    </div>
+    <div class="card text-white bg-success mt-2 col-lg-4 col-sm">
+      <div class="row">
+        <div class="card-body col-sm-9">
+          <h5 class="card-title">ต้นทุนรวม</h5>
+        </div>
+        <h5 style="padding-top: 20px"> {{allCost|floatformat:0}}{{allCost_door|floatformat:0}} บาท</h5>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card mt-5 mb-5" style="width: auto">
+      <div class="card-body">
+        <p class="card-text">
+          ประตูบานเฟี้ยมอลูมิเนียมเฉพาะทางอบ{{aluColor}}(อลูมิเนียมหนา{{aluThick}})
+          <br />
+          ขนาดพื้นที่หน้างาน กว้าง{{width}}เมตร x สูง{{lenght}}เมตร <br />
+
+          แบ่งจำนวน{{door}}บานประตู {{glassType}}หนา{{glassThick}}mm <br />
+          ราคา {{alu_price_cbm12|floatformat:0}}
+          {{data12|floatformat:0}}{{alu_price_cbm16|floatformat:0}}
+          {{alu_price_cbm20|floatformat:0}} {{alu_price_door12|floatformat:0}}
+          {{alu_price_door16|floatformat:0}}
+          {{alu_price_door20|floatformat:0}}บาทครับ
+        </p>
+      </div>
+    </div>
+    <hr class="solid">
+  </div>
+
+
+  <div class="container">
+    <h4 style="text-align: center; color:gray">รายละเอียดต้นทุน</h4>
+    <ul class="list-group">
+      <li class="list-group-item mt-3" style="background-color:lightgray; text-align:center">
+        ต้นทุนอลูมิเนียม 
+        {{aluCost|floatformat:0}}{{aluCost_door|floatformat:0}} บาท</li>
+        <li class="list-group-item" style="background-color:lightgray; text-align:center">
+          ต้นทุนกระจก 
+          {{glass_cost_select |floatformat:0 }} บาท</li>
+          <li class="list-group-item" style="background-color:lightgray; text-align:center">
+            ค่าแรงช่างรวม 
+            {{all_labor_cost}} บาท</li>
+
+            <li class="list-group-item" style="background-color:lightgray; text-align:center">
+              ค่าใช้จ่ายอื่นๆ 
+              {{all_other_cost|floatformat:0}} บาท</li>
+    </ul>
+  </div>
+
+  {% endblock %}
+</div>

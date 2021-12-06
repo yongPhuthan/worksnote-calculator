@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block content %}
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark text-center">
+        <tr>
+            <th>ค่าขนส่ง CBM</th>
+            <th>ค่าขนส่ง KG</th>
+            <th>ค่าแรงช่าง</th>
+            <th>ค่าส่งจีน ค่าน้ำมันรับของ-วัดหน้างาน</th>
+            <th>อุปกรณ์เสริม</th>
+            <th>ค่าใช้จ่ายอื่นๆ</th>
+        </tr>
+
+    </thead>
+    {% for r in data %}
+    <tr class="text-center">
+        <td>{{r.cbm_cost}}</td>        <td><a href="{% url 'other_cost_update' id=r.id %}">แก้ไข</a></td>
+
+        <td>{{r.kg_cost}}</td>
+        <td>{{r.labor_cost}}</td>
+        <td>{{r.transport_cost}}</td>
+        <td>{{r.tools_cost}}</td>
+        <td>{{r.other_cost}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'fol_cost_show' %}">ย้อนกลับ</a>
+
+
+{% endblock %}

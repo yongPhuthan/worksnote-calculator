@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+
+<div style="margin-top: 20%;">
+
+    <a class="btn btn-primary btn-lg btn-block" href="{% url 'fol_cost_add' %}" role="button">เพิ่มข้อมูล-ต้นทุนอลูมิเนียม</a><br>
+    <a class="btn btn-primary btn-lg btn-block" href="{% url 'glass_cost_add' %}"
+       role="button">เพิ่มข้อมูล-ต้นทุนกระจก</a><br>
+    <a class="btn btn-primary btn-lg btn-block" href="{% url 'other_cost_add' %}" role="button">เพิ่มข้อมูล-ค่าแรง-อุปกรณ์-ขนส่ง</a>
+
+</div>
+<br>
+<br>
+<a href="{% url 'fol_input_page' %}" class="btn btn-success">ย้อนกลับ</a>
+{% endblock %}
